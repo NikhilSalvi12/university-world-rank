@@ -1,1 +1,1 @@
-web: gunicorn <Universityrank>.wsgi--log-file -
+web: gunicorn Universityrank.wsgi--log-file -
