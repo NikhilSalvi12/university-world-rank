@@ -81,13 +81,16 @@ WSGI_APPLICATION = 'Universityrank.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR/'db.sqlite3',
-    }
 
-}
+DATABASES['default'] = dj_database_url.config()
+
+#DATABASES = {
+#    'default': {
+#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#            'NAME': "world_rank_db",
+#    }
+#
+#}
 
 
 # Password validation
@@ -129,7 +132,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
