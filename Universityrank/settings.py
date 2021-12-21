@@ -29,7 +29,7 @@ load_dotenv(find_dotenv())
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -82,15 +82,15 @@ WSGI_APPLICATION = 'Universityrank.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 
-DATABASES['default'] = dj_database_url.config()
+#DATABASES['default'] = dj_database_url.config()
 
-#DATABASES = {
-#    'default': {
-#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#            'NAME': "world_rank_db",
-#    }
-#
-#}
+DATABASES = {
+    'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': "world_rank_db",
+    }
+
+}
 
 
 # Password validation
