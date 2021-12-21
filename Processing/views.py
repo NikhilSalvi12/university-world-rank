@@ -2,9 +2,12 @@ from django.shortcuts import render
 import pickle
 import sklearn
 import pandas as pd
+from pathlib import Path
 
 
 # Create your views here.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Passes the homepage
 def userpannel(request):
@@ -35,10 +38,10 @@ def getrank(request):
                        'citations': citations, 'broad_impact': broad_impact, 'patents': patents,
                        'score': score, 'year': year}])
 
-    norm = pickle.load(open(r'../Universityrank/sav_files/normalize.sav', 'rb'))
+    norm = pickle.load(open(BASE_DIR/r'sav_files/normalize.sav', 'rb'))
     df_norm = norm.transform(df)
 
-    model = pickle.load(open(r'../Universityrank/sav_files/finalized_model.sav', 'rb'))
+    model = pickle.load(open(BASE_DIR/r'sav_files/finalized_model.sav', 'rb'))
     prediction = model.predict(df_norm)
     prediction = prediction[0].round()
 
