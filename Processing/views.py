@@ -2,6 +2,7 @@ from django.shortcuts import render
 import pickle
 import sklearn
 import pandas as pd
+
 # Create your views here.
 
 
@@ -32,10 +33,10 @@ def getrank(request):
                        'citations': citations, 'broad_impact': broad_impact, 'patents': patents,
                        'score': score, 'year': year}])
 
-    norm = pickle.load(open(r'static\normalize.sav', 'rb'))
+    norm = pickle.load(open(r'sav_files\normalize', 'rb'))
     df_norm = norm.transform(df)
 
-    model = pickle.load(open(r'static\finalized_model.sav', 'rb'))
+    model = pickle.load(open(r'sav_files\finalized_model.sav', 'rb'))
     prediction = model.predict(df_norm)
     prediction = prediction[0].round()
 
