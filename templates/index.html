@@ -16,7 +16,21 @@ body{background-image:url(https://images.unsplash.com/photo-1579546929662-711aa8
 <div style="text-align: center;">
 	<form action="/calculate" method="get">
 		<span>Institute name: </span><input type="text" id="Institute_name" name="Institute_name" placeholder="Enter Name of Institute">&emsp;&emsp;
-		<span>Country: </span><input type="text" id="Country" name="Country" placeholder=""><br><br>
+		<label for="Country">Country: </label><select name="Country" id="Country">
+
+	</select><br><br>
+		<script>
+				var text2 ="";
+				var countries = ['USA','United Kingdom','Japan','Switzerland','Israel','Canada','France','Sweden','South Korea','Italy','Germany','Netherlands','Finland','Norway','Australia','Denmark','Singapore','Russia','China','Taiwan','Belgium','South Africa','Spain','Brazil','Hong Kong','Ireland', 'Austria','New Zealand','Portugal','Thailand','Czech Republic','Malaysia','India','Greece','Mexico','Hungary','Argentina','Turkey','Poland','Saudi Arabia','Chile','Iceland','Slovenia','Estonia','Lebanon','Croatia','Colombia','Slovak Republic','Iran','Egypt','Serbia','Bulgaria','Lithuania','Uganda', 'United Arab Emirates','Uruguay','Cyprus','Romania','Puerto Rico'];
+				var input = document.getElementById("Country").value;
+				var x;
+				var i;
+				for (x = 0; x <=58; x++){
+					i = countries[x];
+					text2+='<option value="' + i+'">'+i+'</option>';
+				}
+				document.getElementById("Country").innerHTML = text2;
+		</script>
 		<span>National Rank: </span><input type="number" id="National_rank" name="National_rank" placeholder="National rank of the Istitute" min="1" required>&emsp;&emsp;
 		<span>Education Quality: </span><input type="number" id="Edu_quality" name="Edu_quality" placeholder="Rate quality of education" min="0" required><br><br>
 		<span>Alumni Employment: </span><input type="number" id="Alumni" name="Alumni" placeholder="Rate Alumni Employment" min="0" required>&emsp;&emsp;
