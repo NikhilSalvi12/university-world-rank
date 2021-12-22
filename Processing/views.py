@@ -16,8 +16,17 @@ def userpannel(request):
 
 #calculate the rank from the predicted values
 def getrank(request):
+    other_country_list = ['Portugal','Greece','Hong Kong','Norway','New Zealand','Hungary','Denmark','South Africa','Czech Republic','Russia','Saudi Arabia','Egypt','Chile','Argentina','Thailand','Malaysia','Singapore','Colombia','Mexico','Slovenia','Romania','Lebanon','Croatia','Estonia','Slovak Republic','Iceland','Serbia','Bulgaria','Lithuania','Uganda','United Arab Emirates','Uruguay','Cyprus','Puerto Rico']
     Institute_name = request.GET["Institute_name"]
     Country = request.GET["Country"]
+    if Country in other_country_list:
+        Country = "Other"
+    # values from the created model
+    country_map_dic = {'USA': 0, 'China': 1,'Japan': 2,'United Kingdom': 3, 'Germany': 4,'France': 5,'Italy': 6,'Spain': 7,
+                       'Canada': 8,'South Korea': 9,'Australia': 10,'Taiwan': 11,'Brazil': 12,'India': 13,'Netherlands': 14,
+                       'Switzerland': 15,'Sweden': 16,'Austria': 17,'Israel': 18,'Finland': 19,'Turkey': 20,'Belgium': 21,
+                       'Poland': 22,'Iran': 23,'Ireland': 24,'Other': 25}
+    Country = country_map_dic[Country]
     National_rank = request.GET["National_rank"]
     Edu_quality = request.GET["Edu_quality"]
     Alumni = request.GET["Alumni"]
@@ -32,11 +41,11 @@ def getrank(request):
     score = request.GET["score"]
     year = request.GET["year"]
 
-    df = pd.DataFrame([{'national_rank': National_rank,
+    df = pd.DataFrame([{'country': Country,'national_rank': National_rank,
                        'quality_of_education': Edu_quality, 'alumni_employment': Alumni,
-                       'quality_of_faculty': Faculty, 'publications': Publication, 'influence': Influence,
-                       'citations': citations, 'broad_impact': broad_impact, 'patents': patents,
-                       'score': score, 'year': year}])
+                        'quality_of_faculty': Faculty, 'publications': Publication, 'influence': Influence,
+                        'citations': citations, 'broad_impact': broad_impact, 'patents': patents,
+                        'score': score, 'year': year}])
 
     norm = pickle.load(open(BASE_DIR/r'sav_files/normalize.sav', 'rb'))
     df_norm = norm.transform(df)
