@@ -35,3 +35,5 @@ We have to create a algorithm that can correctly identify the World Rank for the
 8. Creating and evaluating models
 9. Finalizing a model with lowest error.
 10. Exporting the model and scalling model for the deployment.
+
+The deployment part is on the <b>master</b> branch
