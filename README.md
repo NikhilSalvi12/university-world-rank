@@ -1,4 +1,4 @@
-# University world rank ![faviconuni](https://user-images.githubusercontent.com/78545675/147276560-13a472ce-3c69-4bac-85d3-e01793068dae.png)
+# University world rank <img src="https://user-images.githubusercontent.com/78545675/147276560-13a472ce-3c69-4bac-85d3-e01793068dae.png" width=50 height=50 />
 Prediction of the Universal rank for colleges
 
 
