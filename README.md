@@ -1,5 +1,6 @@
-# University world rank
+# University world rank ![faviconuni](https://user-images.githubusercontent.com/78545675/147276560-13a472ce-3c69-4bac-85d3-e01793068dae.png)
 Prediction of the Universal rank for colleges
+
 
 # Data Set
 The Data set is a collection of the world wide Colleges/Universities that defines their work, their accomplishments and reviews for the universities.The Data recived consists of World Rank of the University, The Istitution name, the country, the National Rank, the quality of education, their alumini employment, the quality of faculty, the number of publications, their influence, the citations, the braod impact of the university, Number of Patents, the university score, Year of Inauguration.
