@@ -1,4 +1,4 @@
-# university-world-rank
+# University world rank
 Prediction of the Universal rank for colleges
 
 # Data Set
